@@ -9,7 +9,7 @@ LFLAGS = -g -Wall -Wextra
 PKG_MATH_LIBS = -lm
 PKG_CHECK_LIBS = `pkg-config --libs check`
 
-.PHONY: get-deps
+.PHONY: all dep clean
 
 all: geometry_test 
 
@@ -25,8 +25,8 @@ geometry.o: geometry.c geometry.h
 test: geometry_test
 	./geometry_test
 
-get-deps:
-	make get-deps
+dep:
+	sudo apt-get install check
 
 clean:
 	$(RM) *.o
